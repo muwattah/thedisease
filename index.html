@@ -8,59 +8,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #f4efe6;
-      --paper: #fffaf2;
-      --ink: #1c1712;
-      --muted: #6b5e4e;
-      --gold: #8a6a2f;
-      --gold-2: #c4a35a;
-      --line: #d9cdb6;
-      --accent: #3d5a45;
-      --chip: #efe6d4;
-      --shadow: 0 10px 30px rgba(40, 28, 10, .08);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; }
-    body {
-      font-family: "IBM Plex Sans", system-ui, sans-serif;
-      background:
-        radial-gradient(1200px 500px at 10% -10%, #efe3c8 0%, transparent 55%),
-        radial-gradient(900px 400px at 100% 0%, #e4d6b8 0%, transparent 50%),
-        var(--bg);
-      color: var(--ink);
-    }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; }
-    header { text-align: center; padding: 28px 12px 18px; }
-    .kicker { letter-spacing: .22em; text-transform: uppercase; font-size: 11px; color: var(--gold); font-weight: 600; }
-    h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: clamp(28px, 5vw, 46px); margin: 8px 0 6px; line-height: 1.15; }
-    .sub { color: var(--muted); font-size: 15px; max-width: 580px; margin: 0 auto 8px; line-height: 1.55; }
-    .ar-title { font-family: Amiri, serif; font-size: 22px; color: var(--gold); direction: rtl; margin-top: 4px; }
-    .bar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 22px 0 8px; }
-    input[type="search"] {
-      flex: 1; min-width: 220px; max-width: 420px; border: 1px solid var(--line);
-      background: var(--paper); border-radius: 999px; padding: 11px 16px; font: inherit; outline: none;
-    }
-    input[type="search"]:focus { border-color: var(--gold-2); box-shadow: 0 0 0 3px rgba(196,163,90,.2); }
-    button.act { border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 10px 16px; font: inherit; cursor: pointer; }
-    button.act:hover { border-color: var(--gold); }
-    button.act.primary { background: var(--accent); color: #f7f3ea; border-color: transparent; }
-    .stats { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 16px; }
-    .chapters { display: flex; gap: 8px; overflow-x: auto; padding: 6px 2px 14px; scrollbar-width: thin; }
-    .chip { flex: 0 0 auto; border: 1px solid var(--line); background: var(--chip); color: var(--ink); border-radius: 999px; padding: 7px 12px; font-size: 13px; cursor: pointer; white-space: nowrap; }
-    .chip.on, .chip:hover { background: var(--accent); color: #f7f3ea; border-color: transparent; }
-    .grid { display: grid; gap: 14px; }
-    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px 16px; box-shadow: var(--shadow); }
-    .meta { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; margin-bottom: 10px; }
-    .chapter { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-    .fav { background: none; border: 0; cursor: pointer; font-size: 18px; color: var(--muted); }
-    .fav.on { color: #b4532a; }
-    .quote { font-family: "Source Serif 4", Georgia, serif; font-size: 20px; line-height: 1.45; font-weight: 600; }
-    .ar { font-family: Amiri, serif; direction: rtl; font-size: 22px; color: #3a3228; margin: 12px 0 8px; line-height: 1.75; }
-    .note { color: var(--muted); font-size: 13.5px; line-height: 1.5; }
-    footer { margin-top: 36px; text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
-    .empty { text-align: center; padding: 40px 10px; color: var(--muted); }
-    @media (max-width: 640px) { .quote { font-size: 18px; } .ar { font-size: 19px; } }
+    :root { --bg:#f4efe6; --paper:#fffaf2; --ink:#1c1712; --muted:#6b5e4e; --gold:#8a6a2f; --gold-2:#c4a35a; --line:#d9cdb6; --accent:#3d5a45; --chip:#efe6d4; --shadow:0 10px 30px rgba(40,28,10,.08); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { min-height:100%; }
+    body { font-family:"IBM Plex Sans",system-ui,sans-serif; background:radial-gradient(1200px 500px at 10% -10%, #efe3c8 0%, transparent 55%), radial-gradient(900px 400px at 100% 0%, #e4d6b8 0%, transparent 50%), var(--bg); color:var(--ink); }
+    .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
+    header { text-align:center; padding:28px 12px 18px; }
+    .kicker { letter-spacing:.22em; text-transform:uppercase; font-size:11px; color:var(--gold); font-weight:600; }
+    h1 { font-family:"Source Serif 4",Georgia,serif; font-weight:700; font-size:clamp(28px,5vw,46px); margin:8px 0 6px; line-height:1.15; }
+    .sub { color:var(--muted); font-size:15px; max-width:580px; margin:0 auto 8px; line-height:1.55; }
+    .ar-title { font-family:Amiri,serif; font-size:22px; color:var(--gold); direction:rtl; margin-top:4px; }
+    .bar { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:22px 0 8px; }
+    input[type="search"] { flex:1; min-width:220px; max-width:420px; border:1px solid var(--line); background:var(--paper); border-radius:999px; padding:11px 16px; font:inherit; outline:none; }
+    button.act { border:1px solid var(--line); background:var(--paper); color:var(--ink); border-radius:999px; padding:10px 16px; font:inherit; cursor:pointer; }
+    button.act.primary { background:var(--accent); color:#f7f3ea; border-color:transparent; }
+    .stats { text-align:center; color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .chapters { display:flex; gap:8px; overflow-x:auto; padding:6px 2px 14px; }
+    .chip { flex:0 0 auto; border:1px solid var(--line); background:var(--chip); border-radius:999px; padding:7px 12px; font-size:13px; cursor:pointer; white-space:nowrap; }
+    .chip.on, .chip:hover { background:var(--accent); color:#f7f3ea; border-color:transparent; }
+    .grid { display:grid; gap:14px; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:20px 22px 16px; box-shadow:var(--shadow); }
+    .meta { display:flex; justify-content:space-between; gap:10px; align-items:baseline; margin-bottom:10px; }
+    .chapter { font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+    .fav { background:none; border:0; cursor:pointer; font-size:18px; color:var(--muted); }
+    .fav.on { color:#b4532a; }
+    .quote { font-family:"Source Serif 4",Georgia,serif; font-size:20px; line-height:1.45; font-weight:600; }
+    .note { color:var(--muted); font-size:13.5px; line-height:1.5; margin-top:8px; }
+    footer { margin-top:36px; text-align:center; color:var(--muted); font-size:12.5px; line-height:1.6; }
+    .empty { text-align:center; padding:40px 10px; color:var(--muted); }
   </style>
 </head>
 <body>
@@ -69,7 +44,7 @@
       <div class="kicker">Ibn Qayyim al-Jawziyya</div>
       <h1>The Disease and the Cure</h1>
       <div class="ar-title">الداء والدواء</div>
-      <p class="sub">Short sayings from <em>al-Dāʾ wa-l-Dawāʾ</em>, arranged by chapter. Arabic first, then English.</p>
+      <p class="sub">Sayings from the Hikmah English translation of <em>al-Dāʾ wa-l-Dawāʾ</em>, arranged by chapter.</p>
     </header>
     <div class="bar">
       <input id="q" type="search" placeholder="Search quotes or chapters…" />
@@ -81,8 +56,8 @@
     <div class="chapters" id="chips"></div>
     <div class="grid" id="list"></div>
     <footer>
-      Source: Ibn al-Qayyim, <em>al-Jawāb al-Kāfī / al-Dāʾ wa-l-Dawāʾ</em>.<br />
-      Short excerpts only — not the full book.
+      Excerpts from Imām Ibn al-Qayyim, <em>The Disease and the Cure</em>, tr. Osman Hamid (Hikmah Publications, 2020).<br />
+      Short excerpts only — not the full book. Used with permission.
     </footer>
   </div>
 <script src="data.js"></script>
@@ -93,14 +68,12 @@ const stats = document.getElementById("stats");
 const q = document.getElementById("q");
 let filterCh = "All";
 let onlyFav = false;
-const favKey = "iq-favs-v2-en";
+const favKey = "iq-favs-v3-hikmah";
 const favs = new Set(JSON.parse(localStorage.getItem(favKey) || "[]"));
 function saveFav() { localStorage.setItem(favKey, JSON.stringify([...favs])); }
 const chapters = ["All", ...Array.from(new Set(DATA.map(d => d.ch)))];
 function renderChips() {
-  chips.innerHTML = chapters.map(c =>
-    `<button class="chip ${c === filterCh ? "on" : ""}" data-ch="${c.replaceAll('"','"')}">${c}</button>`
-  ).join("");
+  chips.innerHTML = chapters.map(c => `<button class="chip ${c === filterCh ? "on" : ""}" data-ch="${c.replaceAll('"','&quot;')}">${c}</button>`).join("");
 }
 function visible() {
   const term = q.value.trim().toLowerCase();
@@ -108,7 +81,7 @@ function visible() {
     if (onlyFav && !favs.has(d.i)) return false;
     if (filterCh !== "All" && d.ch !== filterCh) return false;
     if (!term) return true;
-    return (d.en + d.ar + d.ch + d.arCh + d.note).toLowerCase().includes(term);
+    return (d.en + d.ch + d.arCh + d.note).toLowerCase().includes(term);
   });
 }
 function render() {
@@ -121,42 +94,23 @@ function render() {
         <div class="chapter">${d.ch} · ${d.arCh}</div>
         <button class="fav ${favs.has(d.i) ? "on" : ""}" title="Favourite" data-fav="${d.i}">${favs.has(d.i) ? "♥" : "♡"}</button>
       </div>
-      <div class="ar">${d.ar}</div>
       <div class="quote">${d.en}</div>
       <div class="note">${d.note}</div>
-    </article>
-  `).join("");
+    </article>`).join("");
 }
-chips.addEventListener("click", e => {
-  const b = e.target.closest(".chip");
-  if (!b) return;
-  filterCh = b.dataset.ch; onlyFav = false; renderChips(); render();
-});
-list.addEventListener("click", e => {
-  const b = e.target.closest("[data-fav]");
-  if (!b) return;
-  const i = Number(b.dataset.fav);
-  if (favs.has(i)) favs.delete(i); else favs.add(i);
-  saveFav(); render();
-});
+chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; filterCh = b.dataset.ch; onlyFav = false; renderChips(); render(); });
+list.addEventListener("click", e => { const b = e.target.closest("[data-fav]"); if (!b) return; const i = Number(b.dataset.fav); if (favs.has(i)) favs.delete(i); else favs.add(i); saveFav(); render(); });
 q.addEventListener("input", render);
 document.getElementById("all").onclick = () => { filterCh = "All"; onlyFav = false; q.value = ""; renderChips(); render(); };
 document.getElementById("favs").onclick = () => { onlyFav = true; filterCh = "All"; renderChips(); render(); };
 document.getElementById("rand").onclick = () => {
-  const pool = visible();
-  if (!pool.length) return;
+  const pool = visible(); if (!pool.length) return;
   const pick = pool[Math.floor(Math.random() * pool.length)];
-  filterCh = "All"; onlyFav = false; q.value = "";
-  renderChips(); render();
+  filterCh = "All"; onlyFav = false; q.value = ""; renderChips(); render();
   const el = list.querySelector(`[data-i="${pick.i}"]`);
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "center" });
-    el.style.outline = "2px solid var(--gold-2)";
-    setTimeout(() => el.style.outline = "", 1600);
-  }
+  if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.style.outline = "2px solid var(--gold-2)"; setTimeout(() => el.style.outline = "", 1600); }
 };
-renderChips();
-render();
+renderChips(); render();
 </script>
 </body>
 </html>
