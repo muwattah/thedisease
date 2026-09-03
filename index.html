@@ -4,38 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ibn al-Qayyim — The Disease and the Cure</title>
+  <meta name="description" content="A large reading companion of excerpts from Ibn al-Qayyim's al-Da' wa-l-Dawa', Hikmah translation by Osman Hamid." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#f4efe6; --paper:#fffaf2; --ink:#1c1712; --muted:#6b5e4e; --gold:#8a6a2f; --gold-2:#c4a35a; --line:#d9cdb6; --accent:#3d5a45; --chip:#efe6d4; --shadow:0 10px 30px rgba(40,28,10,.08); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html, body { min-height:100%; }
-    body { font-family:"IBM Plex Sans",system-ui,sans-serif; background:radial-gradient(1200px 500px at 10% -10%, #efe3c8 0%, transparent 55%), radial-gradient(900px 400px at 100% 0%, #e4d6b8 0%, transparent 50%), var(--bg); color:var(--ink); }
-    .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
-    header { text-align:center; padding:28px 12px 18px; }
-    .kicker { letter-spacing:.22em; text-transform:uppercase; font-size:11px; color:var(--gold); font-weight:600; }
-    h1 { font-family:"Source Serif 4",Georgia,serif; font-weight:700; font-size:clamp(28px,5vw,46px); margin:8px 0 6px; line-height:1.15; }
-    .sub { color:var(--muted); font-size:15px; max-width:580px; margin:0 auto 8px; line-height:1.55; }
-    .ar-title { font-family:Amiri,serif; font-size:22px; color:var(--gold); direction:rtl; margin-top:4px; }
-    .bar { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:22px 0 8px; }
-    input[type="search"] { flex:1; min-width:220px; max-width:420px; border:1px solid var(--line); background:var(--paper); border-radius:999px; padding:11px 16px; font:inherit; outline:none; }
-    button.act { border:1px solid var(--line); background:var(--paper); color:var(--ink); border-radius:999px; padding:10px 16px; font:inherit; cursor:pointer; }
-    button.act.primary { background:var(--accent); color:#f7f3ea; border-color:transparent; }
-    .stats { text-align:center; color:var(--muted); font-size:13px; margin-bottom:16px; }
-    .chapters { display:flex; gap:8px; overflow-x:auto; padding:6px 2px 14px; }
-    .chip { flex:0 0 auto; border:1px solid var(--line); background:var(--chip); border-radius:999px; padding:7px 12px; font-size:13px; cursor:pointer; white-space:nowrap; }
-    .chip.on, .chip:hover { background:var(--accent); color:#f7f3ea; border-color:transparent; }
-    .grid { display:grid; gap:14px; }
-    .card { background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:20px 22px 16px; box-shadow:var(--shadow); }
-    .meta { display:flex; justify-content:space-between; gap:10px; align-items:baseline; margin-bottom:10px; }
-    .chapter { font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--gold); font-weight:600; }
-    .fav { background:none; border:0; cursor:pointer; font-size:18px; color:var(--muted); }
-    .fav.on { color:#b4532a; }
-    .quote { font-family:"Source Serif 4",Georgia,serif; font-size:20px; line-height:1.45; font-weight:600; }
-    .note { color:var(--muted); font-size:13.5px; line-height:1.5; margin-top:8px; }
-    footer { margin-top:36px; text-align:center; color:var(--muted); font-size:12.5px; line-height:1.6; }
-    .empty { text-align:center; padding:40px 10px; color:var(--muted); }
+    :root {
+      --bg: #f3ebdc;
+      --paper: #fffaf1;
+      --ink: #1c1712;
+      --muted: #6b5e4e;
+      --gold: #8a6a2f;
+      --gold-2: #c4a35a;
+      --line: #d9cdb6;
+      --accent: #3d5a45;
+      --chip: #efe6d4;
+      --shadow: 0 12px 34px rgba(40, 28, 10, .08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 520px at 8% -12%, #efe3c8 0%, transparent 55%),
+        radial-gradient(900px 420px at 100% 0%, #e4d6b8 0%, transparent 50%),
+        var(--bg);
+      color: var(--ink);
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 28px 18px 96px; }
+    header { text-align: center; padding: 22px 8px 10px; }
+    .kicker { letter-spacing: .22em; text-transform: uppercase; font-size: 11px; color: var(--gold); font-weight: 600; }
+    h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: clamp(28px, 5vw, 46px); margin: 8px 0 6px; line-height: 1.15; }
+    .sub { color: var(--muted); font-size: 15px; max-width: 620px; margin: 0 auto 8px; line-height: 1.55; }
+    .ar-title { font-family: Amiri, serif; font-size: 24px; color: var(--gold); direction: rtl; margin-top: 4px; }
+    .bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 20px 0 8px; }
+    input[type="search"] {
+      flex: 1; min-width: 200px; max-width: 420px; border: 1px solid var(--line);
+      background: var(--paper); border-radius: 999px; padding: 11px 16px; font: inherit; outline: none;
+    }
+    input[type="search"]:focus { border-color: var(--gold-2); box-shadow: 0 0 0 3px rgba(196,163,90,.2); }
+    button.act { border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 10px 14px; font: inherit; cursor: pointer; }
+    button.act:hover { border-color: var(--gold); }
+    button.act.primary { background: var(--accent); color: #f7f3ea; border-color: transparent; }
+    .stats { text-align: center; color: var(--muted); font-size: 13px; margin: 4px 0 12px; }
+    .chapters { display: flex; gap: 8px; overflow-x: auto; padding: 6px 2px 14px; scrollbar-width: thin; }
+    .chip { flex: 0 0 auto; border: 1px solid var(--line); background: var(--chip); color: var(--ink); border-radius: 999px; padding: 7px 12px; font-size: 13px; cursor: pointer; white-space: nowrap; }
+    .chip.on, .chip:hover { background: var(--accent); color: #f7f3ea; border-color: transparent; }
+    .grid { display: grid; gap: 16px; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px 22px 16px; box-shadow: var(--shadow); }
+    .card.open { border-color: #cbb68a; }
+    .meta { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; margin-bottom: 10px; }
+    .chapter { font-size: 12px; letter-spacing: .03em; text-transform: uppercase; color: var(--gold); font-weight: 600; line-height: 1.4; }
+    .fav { background: none; border: 0; cursor: pointer; font-size: 18px; color: var(--muted); }
+    .fav.on { color: #b4532a; }
+    .quote { font-family: "Source Serif 4", Georgia, serif; font-size: var(--fs, 19.5px); line-height: 1.62; font-weight: 500; }
+    .quote.collapsed { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .note { color: var(--muted); font-size: 12.5px; line-height: 1.5; margin-top: 12px; }
+    .more { margin-top: 12px; background: none; border: 0; color: var(--gold); font: inherit; font-weight: 600; cursor: pointer; padding: 0; }
+    footer { margin-top: 36px; text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+    .empty { text-align: center; padding: 40px 10px; color: var(--muted); }
+    .reader { position: fixed; inset: 0; background: rgba(28,23,18,.45); display: none; z-index: 20; padding: 18px; }
+    .reader.show { display: grid; place-items: center; }
+    .reader .sheet { background: var(--paper); max-width: 720px; width: 100%; max-height: min(90vh, 900px); overflow: auto; border-radius: 20px; padding: 28px 26px 20px; box-shadow: 0 30px 80px rgba(20,12,4,.28); }
+    .reader .nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 18px; }
+    @media (max-width: 640px) {
+      .quote { font-size: 17.5px; }
+      .card { padding: 18px 16px 14px; }
+    }
   </style>
 </head>
 <body>
@@ -44,73 +79,183 @@
       <div class="kicker">Ibn Qayyim al-Jawziyya</div>
       <h1>The Disease and the Cure</h1>
       <div class="ar-title">الداء والدواء</div>
-      <p class="sub">Sayings from the Hikmah English translation of <em>al-Dāʾ wa-l-Dawāʾ</em>, arranged by chapter.</p>
+      <p class="sub">A large reading companion of longer excerpts from the Hikmah English translation of <em>al-Dāʾ wa-l-Dawāʾ</em>. Open a card, or enter reader mode, and stay for hours.</p>
     </header>
+
     <div class="bar">
-      <input id="q" type="search" placeholder="Search quotes or chapters…" />
+      <input id="q" type="search" placeholder="Search the book…" />
       <button class="act" id="rand">Random</button>
+      <button class="act" id="readerBtn">Reader</button>
       <button class="act" id="favs">Favourites</button>
       <button class="act primary" id="all">All</button>
     </div>
     <div class="stats" id="stats"></div>
     <div class="chapters" id="chips"></div>
     <div class="grid" id="list"></div>
+
     <footer>
-      Excerpts from Imām Ibn al-Qayyim, <em>The Disease and the Cure</em>, tr. Osman Hamid (Hikmah Publications, 2020).<br />
-      Short excerpts only — not the full book. Used with permission.
+      Selected longer excerpts from Imām Ibn al-Qayyim, <em>The Disease and the Cure</em>, tr. Osman Hamid (Hikmah Publications, 2020).<br />
+      Not a substitute for the printed book. Used for private study.
     </footer>
   </div>
-<script src="data.js"></script>
+
+  <div class="reader" id="reader">
+    <div class="sheet">
+      <div class="chapter" id="rCh"></div>
+      <div class="quote" id="rBody" style="margin-top:12px"></div>
+      <div class="note" id="rNote"></div>
+      <div class="nav">
+        <button class="act" id="rPrev">Previous</button>
+        <button class="act" id="rClose">Close</button>
+        <button class="act primary" id="rNext">Next</button>
+      </div>
+    </div>
+  </div>
+
+<script src="d1.js"></script>
+<script src="d2.js"></script>
+<script src="d3.js"></script>
+<script src="d4.js"></script>
+<script>const DATA = [].concat(P1, P2, P3, P4);</script>
 <script>
 const list = document.getElementById("list");
 const chips = document.getElementById("chips");
 const stats = document.getElementById("stats");
 const q = document.getElementById("q");
+const reader = document.getElementById("reader");
+
 let filterCh = "All";
 let onlyFav = false;
-const favKey = "iq-favs-v3-hikmah";
+let open = new Set();
+let readerIdx = 0;
+const favKey = "iq-favs-v3-en";
 const favs = new Set(JSON.parse(localStorage.getItem(favKey) || "[]"));
 function saveFav() { localStorage.setItem(favKey, JSON.stringify([...favs])); }
+
 const chapters = ["All", ...Array.from(new Set(DATA.map(d => d.ch)))];
-function renderChips() {
-  chips.innerHTML = chapters.map(c => `<button class="chip ${c === filterCh ? "on" : ""}" data-ch="${c.replaceAll('"','&quot;')}">${c}</button>`).join("");
+const totalWords = DATA.reduce((n, d) => n + d.en.split(/\s+/).length, 0);
+const hours = (totalWords / 220 / 60);
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+  }[c]));
 }
+function preview(s) {
+  const w = s.split(/\s+/);
+  return w.length <= 70 ? s : w.slice(0, 70).join(" ") + "…";
+}
+
+function renderChips() {
+  chips.innerHTML = chapters.map(c =>
+    `<button class="chip ${c === filterCh ? "on" : ""}" data-ch="${esc(c)}">${esc(c)}</button>`
+  ).join("");
+}
+
 function visible() {
   const term = q.value.trim().toLowerCase();
   return DATA.map((d, i) => ({...d, i})).filter(d => {
     if (onlyFav && !favs.has(d.i)) return false;
     if (filterCh !== "All" && d.ch !== filterCh) return false;
     if (!term) return true;
-    return (d.en + d.ch + d.arCh + d.note).toLowerCase().includes(term);
+    return (d.en + " " + d.ch + " " + d.arCh + " " + d.note).toLowerCase().includes(term);
   });
 }
+
 function render() {
   const items = visible();
-  stats.textContent = `${items.length} saying${items.length === 1 ? "" : "s"} · ${DATA.length} total`;
+  const words = items.reduce((n, d) => n + d.en.split(/\s+/).length, 0);
+  stats.textContent = `${items.length} passages · ${words.toLocaleString()} words · ~${Math.max(1, Math.round(words/220))} min on screen · ${DATA.length} in the library (~${hours.toFixed(1)} hours)`;
   if (!items.length) { list.innerHTML = `<div class="empty">Nothing found.</div>`; return; }
-  list.innerHTML = items.map(d => `
-    <article class="card" data-i="${d.i}">
+  list.innerHTML = items.map(d => {
+    const isOpen = open.has(d.i);
+    const body = isOpen ? d.en : preview(d.en);
+    const long = d.en.split(/\s+/).length > 70;
+    return `
+    <article class="card ${isOpen ? "open" : ""}" data-i="${d.i}">
       <div class="meta">
-        <div class="chapter">${d.ch} · ${d.arCh}</div>
+        <div class="chapter">${esc(d.ch)}${d.arCh ? " · " + esc(d.arCh) : ""}</div>
         <button class="fav ${favs.has(d.i) ? "on" : ""}" title="Favourite" data-fav="${d.i}">${favs.has(d.i) ? "♥" : "♡"}</button>
       </div>
-      <div class="quote">${d.en}</div>
-      <div class="note">${d.note}</div>
-    </article>`).join("");
+      <div class="quote ${isOpen || !long ? "" : "collapsed"}">${esc(body)}</div>
+      ${long ? `<button class="more" data-more="${d.i}">${isOpen ? "Show less" : "Read the full passage"}</button>` : ""}
+      <div class="note">${esc(d.note)} · ${d.en.split(/\s+/).length} words</div>
+    </article>`;
+  }).join("");
 }
-chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; filterCh = b.dataset.ch; onlyFav = false; renderChips(); render(); });
-list.addEventListener("click", e => { const b = e.target.closest("[data-fav]"); if (!b) return; const i = Number(b.dataset.fav); if (favs.has(i)) favs.delete(i); else favs.add(i); saveFav(); render(); });
+
+chips.addEventListener("click", e => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  filterCh = b.dataset.ch; onlyFav = false; renderChips(); render();
+});
+list.addEventListener("click", e => {
+  const fav = e.target.closest("[data-fav]");
+  if (fav) {
+    const i = Number(fav.dataset.fav);
+    if (favs.has(i)) favs.delete(i); else favs.add(i);
+    saveFav(); render(); return;
+  }
+  const more = e.target.closest("[data-more]");
+  if (more) {
+    const i = Number(more.dataset.more);
+    if (open.has(i)) open.delete(i); else open.add(i);
+    render();
+  }
+});
 q.addEventListener("input", render);
-document.getElementById("all").onclick = () => { filterCh = "All"; onlyFav = false; q.value = ""; renderChips(); render(); };
+document.getElementById("all").onclick = () => { filterCh = "All"; onlyFav = false; q.value = ""; open.clear(); renderChips(); render(); };
 document.getElementById("favs").onclick = () => { onlyFav = true; filterCh = "All"; renderChips(); render(); };
 document.getElementById("rand").onclick = () => {
-  const pool = visible(); if (!pool.length) return;
+  const pool = visible();
+  if (!pool.length) return;
   const pick = pool[Math.floor(Math.random() * pool.length)];
-  filterCh = "All"; onlyFav = false; q.value = ""; renderChips(); render();
+  open.add(pick.i);
+  render();
   const el = list.querySelector(`[data-i="${pick.i}"]`);
-  if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.style.outline = "2px solid var(--gold-2)"; setTimeout(() => el.style.outline = "", 1600); }
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.style.outline = "2px solid var(--gold-2)";
+    setTimeout(() => el.style.outline = "", 1600);
+  }
 };
-renderChips(); render();
+
+function showReader(i) {
+  const pool = visible();
+  if (!pool.length) return;
+  const idx = Math.max(0, pool.findIndex(d => d.i === i));
+  readerIdx = idx < 0 ? 0 : idx;
+  const d = pool[readerIdx];
+  document.getElementById("rCh").textContent = d.ch + (d.arCh ? " · " + d.arCh : "");
+  document.getElementById("rBody").textContent = d.en;
+  document.getElementById("rNote").textContent = `${readerIdx+1} / ${pool.length} · ${d.note}`;
+  reader.classList.add("show");
+}
+document.getElementById("readerBtn").onclick = () => {
+  const pool = visible();
+  showReader(pool[0] ? pool[0].i : 0);
+};
+document.getElementById("rClose").onclick = () => reader.classList.remove("show");
+document.getElementById("rNext").onclick = () => {
+  const pool = visible();
+  readerIdx = Math.min(pool.length - 1, readerIdx + 1);
+  if (pool[readerIdx]) showReader(pool[readerIdx].i);
+};
+document.getElementById("rPrev").onclick = () => {
+  const pool = visible();
+  readerIdx = Math.max(0, readerIdx - 1);
+  if (pool[readerIdx]) showReader(pool[readerIdx].i);
+};
+reader.addEventListener("click", e => { if (e.target === reader) reader.classList.remove("show"); });
+document.addEventListener("keydown", e => {
+  if (!reader.classList.contains("show")) return;
+  if (e.key === "Escape") reader.classList.remove("show");
+  if (e.key === "ArrowRight") document.getElementById("rNext").click();
+  if (e.key === "ArrowLeft") document.getElementById("rPrev").click();
+});
+
+renderChips();
+render();
 </script>
 </body>
 </html>

@@ -1,11 +1,13 @@
 # The Disease and the Cure
 
-الداء والدواء — sayings of **Ibn al-Qayyim** from *al-Dāʾ wa-l-Dawāʾ*.
+A golden, single-page reading companion of longer excerpts from Imam Ibn al-Qayyim’s *al-Daʾ wa-l-Dawaʾ* (*The Disease and the Cure*), using the Hikmah English translation by Osman Hamid.
 
-Open [index.html](index.html) in a browser.
+Live: <https://muwattah.github.io/thedisease/>
 
-- Arabic + English
-- Search, chapter filter, random saying, favourites
+- Hundreds of longer passages arranged by chapter
+- Arabic chapter titles
+- Search, chapter chips, random, favourites
+- Reader mode for continuous reading
+- Hours of reading time
 
-After enabling GitHub Pages (`Settings → Pages → Deploy from a branch → main / root`):
-https://muwattah.github.io/thedisease/
+Excerpts only — not a replacement for the printed book.
