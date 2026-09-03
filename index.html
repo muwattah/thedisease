@@ -4,14 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ibn al-Qayyim — The Disease and the Cure</title>
+  <meta name="description" content="A large reading companion of excerpts from Ibn al-Qayyim's al-Da' wa-l-Dawa', Hikmah translation by Osman Hamid." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f3ebdc; --paper: #fffaf1; --ink: #1c1712; --muted: #6b5e4e;
-      --gold: #8a6a2f; --gold-2: #c4a35a; --line: #d9cdb6; --accent: #3d5a45;
-      --chip: #efe6d4; --shadow: 0 12px 34px rgba(40, 28, 10, .08);
+      --bg: #f3ebdc;
+      --paper: #fffaf1;
+      --ink: #1c1712;
+      --muted: #6b5e4e;
+      --gold: #8a6a2f;
+      --gold-2: #c4a35a;
+      --line: #d9cdb6;
+      --accent: #3d5a45;
+      --chip: #efe6d4;
+      --shadow: 0 12px 34px rgba(40, 28, 10, .08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { min-height: 100%; }
@@ -49,7 +57,8 @@
     .chapter { font-size: 12px; letter-spacing: .03em; text-transform: uppercase; color: var(--gold); font-weight: 600; line-height: 1.4; }
     .fav { background: none; border: 0; cursor: pointer; font-size: 18px; color: var(--muted); }
     .fav.on { color: #b4532a; }
-    .quote { font-family: "Source Serif 4", Georgia, serif; font-size: 19.5px; line-height: 1.62; font-weight: 500; }
+    .quote { font-family: "Source Serif 4", Georgia, serif; font-size: var(--fs, 19.5px); line-height: 1.62; font-weight: 500; }
+    .quote.collapsed { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
     .note { color: var(--muted); font-size: 12.5px; line-height: 1.5; margin-top: 12px; }
     .more { margin-top: 12px; background: none; border: 0; color: var(--gold); font: inherit; font-weight: 600; cursor: pointer; padding: 0; }
     footer { margin-top: 36px; text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
@@ -58,7 +67,10 @@
     .reader.show { display: grid; place-items: center; }
     .reader .sheet { background: var(--paper); max-width: 720px; width: 100%; max-height: min(90vh, 900px); overflow: auto; border-radius: 20px; padding: 28px 26px 20px; box-shadow: 0 30px 80px rgba(20,12,4,.28); }
     .reader .nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 18px; }
-    @media (max-width: 640px) { .quote { font-size: 17.5px; } .card { padding: 18px 16px 14px; } }
+    @media (max-width: 640px) {
+      .quote { font-size: 17.5px; }
+      .card { padding: 18px 16px 14px; }
+    }
   </style>
 </head>
 <body>
@@ -67,8 +79,9 @@
       <div class="kicker">Ibn Qayyim al-Jawziyya</div>
       <h1>The Disease and the Cure</h1>
       <div class="ar-title">الداء والدواء</div>
-      <p class="sub">A large reading companion of longer excerpts from the Hikmah English translation of <em>al-Dāʾ wa-l-Dawāʾ</em>. Open a card, or enter reader mode, and stay with the book.</p>
+      <p class="sub">A large reading companion of longer excerpts from the Hikmah English translation of <em>al-Dāʾ wa-l-Dawāʾ</em>. Open a card, or enter reader mode, and stay for hours.</p>
     </header>
+
     <div class="bar">
       <input id="q" type="search" placeholder="Search the book…" />
       <button class="act" id="rand">Random</button>
@@ -79,11 +92,13 @@
     <div class="stats" id="stats"></div>
     <div class="chapters" id="chips"></div>
     <div class="grid" id="list"></div>
+
     <footer>
       Selected longer excerpts from Imām Ibn al-Qayyim, <em>The Disease and the Cure</em>, tr. Osman Hamid (Hikmah Publications, 2020).<br />
       Not a substitute for the printed book. Used for private study.
     </footer>
   </div>
+
   <div class="reader" id="reader">
     <div class="sheet">
       <div class="chapter" id="rCh"></div>
@@ -96,13 +111,20 @@
       </div>
     </div>
   </div>
-<script src="data.js"></script>
+
+<script src="part1.js?v=3"></script>
+<script src="part2.js?v=3"></script>
+<script src="part3.js?v=3"></script>
+<script src="part4.js?v=3"></script>
+<script src="part5.js?v=3"></script>
 <script>
+const DATA = (window.PARTS || []).flat();
 const list = document.getElementById("list");
 const chips = document.getElementById("chips");
 const stats = document.getElementById("stats");
 const q = document.getElementById("q");
 const reader = document.getElementById("reader");
+
 let filterCh = "All";
 let onlyFav = false;
 let open = new Set();
@@ -110,76 +132,119 @@ let readerIdx = 0;
 const favKey = "iq-favs-v3-en";
 const favs = new Set(JSON.parse(localStorage.getItem(favKey) || "[]"));
 function saveFav() { localStorage.setItem(favKey, JSON.stringify([...favs])); }
+
 const chapters = ["All", ...Array.from(new Set(DATA.map(d => d.ch)))];
-const totalWords = DATA.reduce((n, d) => n + String(d.en).split(/\s+/).length, 0);
-const hours = totalWords / 220 / 60;
+const totalWords = DATA.reduce((n, d) => n + d.en.split(/\s+/).length, 0);
+const hours = (totalWords / 220 / 60);
+
 function esc(s) {
-  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 }
 function preview(s) {
-  const w = String(s).split(/\s+/);
+  const w = s.split(/\s+/);
   return w.length <= 70 ? s : w.slice(0, 70).join(" ") + "…";
 }
+
 function renderChips() {
-  chips.innerHTML = chapters.map(c => `<button class="chip ${c === filterCh ? "on" : ""}" data-ch="${esc(c)}">${esc(c)}</button>`).join("");
+  chips.innerHTML = chapters.map(c =>
+    `<button class="chip ${c === filterCh ? "on" : ""}" data-ch="${esc(c)}">${esc(c)}</button>`
+  ).join("");
 }
+
 function visible() {
   const term = q.value.trim().toLowerCase();
   return DATA.map((d, i) => ({...d, i})).filter(d => {
     if (onlyFav && !favs.has(d.i)) return false;
     if (filterCh !== "All" && d.ch !== filterCh) return false;
     if (!term) return true;
-    return (d.en + " " + d.ch + " " + (d.arCh||"") + " " + (d.note||"")).toLowerCase().includes(term);
+    return (d.en + " " + d.ch + " " + d.arCh + " " + d.note).toLowerCase().includes(term);
   });
 }
+
 function render() {
   const items = visible();
-  const words = items.reduce((n, d) => n + String(d.en).split(/\s+/).length, 0);
-  stats.textContent = items.length + " passages · " + words.toLocaleString() + " words · ~" + Math.max(1, Math.round(words/220)) + " min · library " + DATA.length + " (∼" + hours.toFixed(1) + " hours)";
-  if (!items.length) { list.innerHTML = "<div class=\"empty\">Nothing found.</div>"; return; }
+  const words = items.reduce((n, d) => n + d.en.split(/\s+/).length, 0);
+  stats.textContent = `${items.length} passages · ${words.toLocaleString()} words · ~${Math.max(1, Math.round(words/220))} min on screen · ${DATA.length} in the library (~${hours.toFixed(1)} hours)`;
+  if (!items.length) { list.innerHTML = `<div class="empty">Nothing found.</div>`; return; }
   list.innerHTML = items.map(d => {
     const isOpen = open.has(d.i);
-    const long = String(d.en).split(/\s+/).length > 70;
-    const body = isOpen || !long ? d.en : preview(d.en);
-    return "<article class=\"card " + (isOpen ? "open" : "") + "\" data-i=\"" + d.i + "\">" +
-      "<div class=\"meta\"><div class=\"chapter\">" + esc(d.ch) + (d.arCh ? " · " + esc(d.arCh) : "") + "</div>" +
-      "<button class=\"fav " + (favs.has(d.i) ? "on" : "") + "\" data-fav=\"" + d.i + "\">" + (favs.has(d.i) ? "♥" : "♡") + "</button></div>" +
-      "<div class=\"quote\">" + esc(body) + "</div>" +
-      (long ? "<button class=\"more\" data-more=\"" + d.i + "\">" + (isOpen ? "Show less" : "Read the full passage") + "</button>" : "") +
-      "<div class=\"note\">" + esc(d.note||"") + " · " + String(d.en).split(/\s+/).length + " words</div></article>";
+    const body = isOpen ? d.en : preview(d.en);
+    const long = d.en.split(/\s+/).length > 70;
+    return `
+    <article class="card ${isOpen ? "open" : ""}" data-i="${d.i}">
+      <div class="meta">
+        <div class="chapter">${esc(d.ch)}${d.arCh ? " · " + esc(d.arCh) : ""}</div>
+        <button class="fav ${favs.has(d.i) ? "on" : ""}" title="Favourite" data-fav="${d.i}">${favs.has(d.i) ? "♥" : "♡"}</button>
+      </div>
+      <div class="quote ${isOpen || !long ? "" : "collapsed"}">${esc(body)}</div>
+      ${long ? `<button class="more" data-more="${d.i}">${isOpen ? "Show less" : "Read the full passage"}</button>` : ""}
+      <div class="note">${esc(d.note)} · ${d.en.split(/\s+/).length} words</div>
+    </article>`;
   }).join("");
 }
-chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; filterCh = b.dataset.ch; onlyFav = false; renderChips(); render(); });
+
+chips.addEventListener("click", e => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  filterCh = b.dataset.ch; onlyFav = false; renderChips(); render();
+});
 list.addEventListener("click", e => {
   const fav = e.target.closest("[data-fav]");
-  if (fav) { const i = Number(fav.dataset.fav); if (favs.has(i)) favs.delete(i); else favs.add(i); saveFav(); render(); return; }
+  if (fav) {
+    const i = Number(fav.dataset.fav);
+    if (favs.has(i)) favs.delete(i); else favs.add(i);
+    saveFav(); render(); return;
+  }
   const more = e.target.closest("[data-more]");
-  if (more) { const i = Number(more.dataset.more); if (open.has(i)) open.delete(i); else open.add(i); render(); }
+  if (more) {
+    const i = Number(more.dataset.more);
+    if (open.has(i)) open.delete(i); else open.add(i);
+    render();
+  }
 });
 q.addEventListener("input", render);
 document.getElementById("all").onclick = () => { filterCh = "All"; onlyFav = false; q.value = ""; open.clear(); renderChips(); render(); };
 document.getElementById("favs").onclick = () => { onlyFav = true; filterCh = "All"; renderChips(); render(); };
 document.getElementById("rand").onclick = () => {
-  const pool = visible(); if (!pool.length) return;
+  const pool = visible();
+  if (!pool.length) return;
   const pick = pool[Math.floor(Math.random() * pool.length)];
-  open.add(pick.i); render();
-  const el = list.querySelector('[data-i="' + pick.i + '"]');
-  if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.style.outline = "2px solid var(--gold-2)"; setTimeout(() => el.style.outline = "", 1600); }
+  open.add(pick.i);
+  render();
+  const el = list.querySelector(`[data-i="${pick.i}"]`);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.style.outline = "2px solid var(--gold-2)";
+    setTimeout(() => el.style.outline = "", 1600);
+  }
 };
+
 function showReader(i) {
-  const pool = visible(); if (!pool.length) return;
+  const pool = visible();
+  if (!pool.length) return;
   const idx = Math.max(0, pool.findIndex(d => d.i === i));
   readerIdx = idx < 0 ? 0 : idx;
   const d = pool[readerIdx];
   document.getElementById("rCh").textContent = d.ch + (d.arCh ? " · " + d.arCh : "");
   document.getElementById("rBody").textContent = d.en;
-  document.getElementById("rNote").textContent = (readerIdx+1) + " / " + pool.length + " · " + (d.note||"");
+  document.getElementById("rNote").textContent = `${readerIdx+1} / ${pool.length} · ${d.note}`;
   reader.classList.add("show");
 }
-document.getElementById("readerBtn").onclick = () => { const pool = visible(); showReader(pool[0] ? pool[0].i : 0); };
+document.getElementById("readerBtn").onclick = () => {
+  const pool = visible();
+  showReader(pool[0] ? pool[0].i : 0);
+};
 document.getElementById("rClose").onclick = () => reader.classList.remove("show");
-document.getElementById("rNext").onclick = () => { const pool = visible(); readerIdx = Math.min(pool.length-1, readerIdx+1); if (pool[readerIdx]) showReader(pool[readerIdx].i); };
-document.getElementById("rPrev").onclick = () => { const pool = visible(); readerIdx = Math.max(0, readerIdx-1); if (pool[readerIdx]) showReader(pool[readerIdx].i); };
+document.getElementById("rNext").onclick = () => {
+  const pool = visible();
+  readerIdx = Math.min(pool.length - 1, readerIdx + 1);
+  if (pool[readerIdx]) showReader(pool[readerIdx].i);
+};
+document.getElementById("rPrev").onclick = () => {
+  const pool = visible();
+  readerIdx = Math.max(0, readerIdx - 1);
+  if (pool[readerIdx]) showReader(pool[readerIdx].i);
+};
 reader.addEventListener("click", e => { if (e.target === reader) reader.classList.remove("show"); });
 document.addEventListener("keydown", e => {
   if (!reader.classList.contains("show")) return;
@@ -187,7 +252,9 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowRight") document.getElementById("rNext").click();
   if (e.key === "ArrowLeft") document.getElementById("rPrev").click();
 });
-renderChips(); render();
+
+renderChips();
+render();
 </script>
 </body>
 </html>

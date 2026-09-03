@@ -4,7 +4,7 @@ A golden, single-page reading companion of longer excerpts from Imam Ibn al-Qayy
 
 Live: <https://muwattah.github.io/thedisease/>
 
-- Hundreds of longer passages arranged by chapter
+- 311 longer passages arranged by chapter (~59,000 words, several hours of reading)
 - Arabic chapter titles
 - Search, chapter chips, random, favourites
 - Reader mode for continuous reading
