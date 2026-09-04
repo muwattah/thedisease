@@ -98,9 +98,8 @@
       </div>
     </div>
   </div>
-<script src="data.js?v=5"></script>
+<script src="data.js?v=6"></script>
 <script>
-const DATA = window.DATA || [];
 const list = document.getElementById("list");
 const chips = document.getElementById("chips");
 const stats = document.getElementById("stats");
@@ -117,7 +116,7 @@ const chapters = ["All", ...Array.from(new Set(DATA.map(d => d.ch)))];
 const totalWords = DATA.reduce((n, d) => n + String(d.en||"").split(/\s+/).filter(Boolean).length, 0);
 const hours = totalWords / 220 / 60;
 function esc(s) {
-  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&","<":"<",">":">","\"":""","'":"&#39;"}[c]));
 }
 function preview(s) {
   const w = String(s).split(/\s+/);
